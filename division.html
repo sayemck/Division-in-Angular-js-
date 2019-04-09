@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+AngularJs ng-change Event with Select / Dropdownlist Example
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module('ngchangeApp', []);
+app.controller('ngchangeCtrl', function ($scope) {
+$scope.arrlist = [{
+"userid": 1,
+"name": "Dhaka"
+}, {
+"userid": 2,
+"name": "Rajshahi"
+}, {
+"userid": 3,
+"name": "Khulna"
+}];
+ 
+$scope.getdetails = function () {
+if ($scope.userselected.userid == "1")
+$scope.result1 = true;
+else
+$scope.result1 = false;
+
+
+	
+if ($scope.userselected.userid == "2")
+$scope.result = true;
+else
+$scope.result = false;
+
+
+if ($scope.userselected.userid == "3")
+$scope.result2 = true;
+else
+$scope.result2 = false;
+
+}
+
+});
+</script>
+</head>
+<body>
+	<fieldset>
+		<legend>AngularJS ng-change Event with Dropdownlist</legend>
+
+<div ng-app="ngchangeApp" ng-controller="ngchangeCtrl" align="center">
+
+<select name="users" ng-options="user.name for user in arrlist" ng-change="getdetails()" ng-model="userselected">
+<option value="">--Select User--</option>
+</select>
+<br />
+<br />
+<div style="padding:10px; border:1px solid black; width:30%; font-weight:bold" ng-show='result'>
+	<ul>
+    	<li>Natore</li>
+    	<li>Chapai Noba Gonj</li>
+    	<li>Shirajgong</li>
+        
+    </ul>
+
+</div>
+<div style="padding:10px; border:1px solid black; width:30%; font-weight:bold" ng-show='result1'>
+	<ul>
+    	<li>Manikgong</li>
+    	<li>Munshigong</li>
+    	<li>Gazipur</li>
+        
+    </ul>
+
+</div>
+
+<div style="padding:10px; border:1px solid black; width:30%; font-weight:bold" ng-show='result2'>
+	<ul>
+    	<li>Bagehat</li>
+    	<li>Shatkhira</li>
+    	<li>Jessore</li>
+    </ul>
+</div>
+
+</div>
+</span>
+</fieldset>
+</body>
+</html>
